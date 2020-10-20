@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mid Exam</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">    
+</head>
+<body>
+    <header class="main-header bg-success shadow-lg">
+        <div class="container">
+            <nav class="navbar navbar-expand-md navbar-light">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="50px" height="50px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M7 12.27v3.72l5 2.73 5-2.73v-3.72L12 15zM5.18 9L12 12.72 18.82 9 12 5.28z" opacity=".3"/><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm5 12.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72zm-5-3.27L5.18 9 12 5.28 18.82 9 12 12.72z"/></svg>
+            <a class="navbar-brand text-light" href="#"><i class="fa fa-podcast"></i>  Student Management MiniApp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link text-light" href="about.html">About</a>
+            </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <h1 class="display-4 border-bottom p-3"><span class="text-success">Student Management</span><br/> MiniApp</h1>
+        <div style="display: flex; flex-direction: row; justify-content: center;">
+            <div style="flex-grow: 1;">
+                <h3>Add Student</h3>
+                <button type="button" class="btn btn-outline-success" id="add_student_button" 
+                data-toggle="collapse" data-target="#student_form_collapsable" aria-expanded="false" 
+                aria-controls="student_form_collapsable" onclick="show_add_student_form_button()">Show form add new student</button>
+
+                <div class="collapse multi-collapse pt-4 mr-4" id="student_form_collapsable">
+                    <form>
+                    <div class="form-group">
+                        <label for="form_stud_id">Student ID (NIM)</label>
+                        <input type="text" class="form-control" id="form_stud_id" aria-describedby="form_stud_id_help" placeholder="105021810268">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="form_stud_name">Full Name</label>
+                        <input type="text" class="form-control" id="form_stud_name" aria-describedby="form_stud_name_help" placeholder="Zayn Malik">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Gender :</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="genderRadio" id="genderRadio1" value="Male" checked>
+                            <label class="form-check-label" for="genderRadio1">
+                                Male
+                             </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="genderRadio" id="genderRadio2" value="Female">
+                            <label class="form-check-label" for="genderRadio2">
+                                    Female
+                            </label>
+                        </div>
+                        </div>
+
+                        <div class="form-group">
+                            <p> Faculty </p>
+                            <select class="form-control" id="form_student_faculty"
+                             onchange="form_stud_faculty_onchange()">
+                                <option>Select Faculty...</option>
+                                <option>Akademi Sekretari Manajemen Indonesia Klabat</option>
+                                <option>Fakultas Ekonomi dan Bisnis</option>
+                                <option>Fakultas Filsafat</option>
+                                <option>Fakultas Ilmu Komputer</option>
+                                <option>Fakultas Keguruan dan Ilmu Pendidikan</option>
+                                <option>Fakultas Keperawatan</option>
+                                <option>Fakultas Pertanian</option>
+                                <option>Pascasarjana</option>
+                            </select>
+                            <p> <br/>Program of Study </p>
+                            <select class="form-control" id="form_student_programOfStudy">
+                                <option>Select Program Study...</option>
+                                <option>Agroteknologi</option>
+                                <option>Akuntansi</option>
+                                <option>Ilmu Filsafat</option>
+                                <option>Informatika</option>
+                                <option>Keperawatan</option>
+                                <option>Magister Manajemen</option>
+                                <option>Magister Teologi</option>
+                                <option>Manajemen</option>
+                                <option>Pendidikan Agama</option>
+                                <option>Pendidikan Bahasa Inggris</option>
+                                <option>Pendidikan Ekonomi</option>
+                                <option>Pendidikan Luar Sekolah</option>
+                                <option>Profesi Ners</option>
+                                <option>Sekretari (D3)</option>
+                                <option>Sistem Informasi</option>
+                            </select>
+                            <br/>
+                        </div>
+
+                        <button type="button" class="btn btn-success" 
+                        id="form_add_student_button"
+                        onclick="add_student()"> Add Student </button>
+                    </form>
+                </div>
+            </div>
+            <div style="width: em; flex-shrink: 0;">
+                <h3> Filter Student By </h3>
+                
+                <p> Faculty </p>
+                <select class="form-control" id="selectByFaculty">
+                    <option>Select Faculty...</option>
+                    <option>Akademi Sekretari Manajemen Indonesia Klabat</option>
+                    <option>Fakultas Ekonomi dan Bisnis</option>
+                    <option>Fakultas Filsafat</option>
+                    <option>Fakultas Ilmu Komputer</option>
+                    <option>Fakultas Keguruan dan Ilmu Pendidikan</option>
+                    <option>Fakultas Keperawatan</option>
+                    <option>Fakultas Pertanian</option>
+                    <option>Pascasarjana</option>
+                </select>
+                <br/>
+                <button type="button" class="btn btn-success" id="show_student_button" onclick="search_byFaculty()"> Show Student </button>
+                <p> <br/>Program of Study </p>
+                <select class="form-control" id="selectByProgramOfStudy">
+                    <option>Select Program of Study...</option>
+                    <option>Agroteknologi</option>
+                    <option>Akuntansi</option>
+                    <option>Ilmu Filsafat</option>
+                    <option>Informatika</option>
+                    <option>Keperawatan</option>
+                    <option>Magister Manajemen</option>
+                    <option>Magister Teologi</option>
+                    <option>Manajemen</option>
+                    <option>Pendidikan Agama</option>
+                    <option>Pendidikan Bahasa Inggris</option>
+                    <option>Pendidikan Ekonomi</option>
+                    <option>Pendidikan Luar Sekolah</option>
+                    <option>Profesi Ners</option>
+                    <option>Sekretari (D3)</option>
+                    <option>Sistem Informasi</option>
+                </select>
+                <br/>
+                <button type="button" class="btn btn-success" id="show_student_button" onclick="search_byProgramOfStudy()">Show Student</button>
+            </div>
+        </div>
+    </div>
+    <div class="container border-top mt-3">
+        <div style="display: flex; justify-content: center; flex-direction: column; text-align: center;">
+            <h1 class="display-4 mt-4">Our Student</h1>
+            <input class="form-control" id="form_search_student" type="text" placeholder="Search students by name..." oninput="search_student()">
+            <table class="table mt-3" id="student_table_data">
+            <thead>
+                <tr>
+                    <th scope="col">Student ID (NIM)</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Faculty</th>
+                    <th scope="col">Program of Study</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody id="student_table_data_body"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="page-footer font-small bg-success" >
+    <div class="text-center text-light py-3">
+        <p> samburmaria ©️ 2020 </p>
+    </div>
+    </footer>
+  <!-- Footer -->
+ <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+</html>
+<script>
+    let student_table_data = document.getElementById("student_table_data_body");
+let form_search_student = document.getElementById("form_search_student");
+let student_data = [
+    {
+        "NIM" : "105021810025",
+        "fullName" : "Gabriela Mamahit",
+        "gender" : "Female",
+        "faculty" : "Keperawatan",
+        "programOfStudy" : "Keperawatan"
+    },
+    {
+        "NIM" : "105021810026",
+        "fullName" : "Laurelia Riwibowo",
+        "gender" : "Female",
+        "faculty" : "Fakultas Ekonomi dan Bisnis",
+        "programOfStudy" : "Akuntansi"
+    },
+    {
+        "NIM" : "105021810027",
+        "fullName" : "Fernando Piay",
+        "gender" : "Male",
+        "faculty" : "Fakultas Ilmu Komputer",
+        "programOfStudy" : "Informatika"
+    },
+    {
+        "NIM" : "105021810028",
+        "fullName" : "Feldryansa Somba",
+        "gender" : "Male",
+        "faculty" : "Fakultas Filsafat",
+        "programOfStudy" : "Ilmu Filsafat"
+    },
+]
+
+function refresh_student_table_data() {
+    //clear table every refresh
+    while(student_table_data.children.length > 0) {
+        student_table_data.removeChild(student_table_data.children[0]);
+    }
+
+    for(let i=0; i<student_data.length; i++) {
+        let row = student_table_data.insertRow();
+        
+        let NIM = row.insertCell(0);
+        NIM.innerHTML = student_data[i].NIM;
+
+        let fullName = row.insertCell(1);
+        fullName.innerHTML = student_data[i].fullName;
+
+        let gender = row.insertCell(2);
+        gender.innerHTML = student_data[i].gender;
+
+        let faculty = row.insertCell(3);
+        faculty.innerHTML = student_data[i].faculty;
+
+        let programOfStudy = row.insertCell(4);
+        programOfStudy.innerHTML = student_data[i].programOfStudy;
+
+        let removeButton_cell = row.insertCell(5);
+        
+        let removeButton = document.createElement("button");
+        removeButton.classList.add("btn");
+        removeButton.classList.add("btn-danger");
+        removeButton.classList.add("shadow-sm");
+        removeButton.innerHTML = "<svg width='1em' height='1em' viewBox='0 0 16 16' class='bi bi-person-x-fill' fill='currentColor' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z'/></svg>";
+        removeButton.addEventListener('click', (e) => {
+            student_data.splice(i, 1);
+            refresh_student_table_data();
+        })
+
+        removeButton_cell.appendChild(removeButton);
+    }
+}
+
+function add_student() {
+    let NIM = document.getElementById("form_stud_id").value;
+    let fullName = document.getElementById("form_stud_name").value;
+    
+    let gender = "";
+    if(document.getElementById("genderRadio1").checked) {
+        gender = "Male";
+    } else if (document.getElementById("genderRadio2").checked)
+    {
+        gender = "Female";
+    }
+
+    let faculty = document.getElementById("form_stud_faculty").value;
+    let programOfStudy = document.getElementById("form_stud_programOfStudy");
+    programOfStudy = programOfStudy.options[programOfStudy.selectedIndex].text;
+
+    student_data.push({
+        "NIM" : NIM,
+        "fullName" : fullName,
+        "gender" : gender,
+        "faculty" : faculty,
+        "programOfStudy" : programOfStudy
+    });
+
+    refresh_student_table_data();
+}
+function show_add_student_form_button() {
+    let button = document.getElementById("add_student_button");
+
+    if(button.innerText == "Show Form Add New Student") {
+        button.innerText = "Hide Form Add New Student";
+    } else if(button.innerText == "Hide Form Add New Student") {
+        button.innerText = "Show Form Add New Student";
+    }
+}
+function createListOption(value, innerHtml) {
+    let newOption = document.createElement("option");
+
+    newOption.value = value;
+    newOption.innerHTML = innerHtml;
+
+    return newOption;
+}
+function form_stud_faculty_onchange() {
+    let form_stud_faculty_list = document.getElementById("form_stud_faculty");
+    let form_stud_programOfStudy_list = document.getElementById("form_stud_programOfStudy");
+
+    let selected_faculty = form_stud_faculty_list.options[form_stud_faculty_list.selectedIndex].text;
+
+    let data_programOfStudy = [
+        {
+            "option" : "Pascasarjana",
+            "list" : ["Magister Manajemen", "Magister Teologi"]
+        },
+        {
+            "option" : "Fakultas Filsafat",
+            "list" : ["Ilmu Filsafat"]
+        },
+        {
+            "option" : "Fakultas Keguruan dan Ilmu Pendidikan",
+            "list" : ["Pendidikan Agama", "Pendidikan Bahasa Inggris",
+                      "Pendidikan Ekonomi", "Pendidikan Luar Sekolah"]
+        },
+        {
+            "option" : "Fakultas Ekonomi dan Bisnis",
+            "list" : ["Akuntansi", "Manajemen"]
+        },
+        {
+            "option" : "Fakultas Pertanian",
+            "list" : ["Agroteknologi"]
+        },
+        {
+            "option" : "Fakultas Ilmu Komputer",
+            "list" : ["Informatika", "Sistem Informasi"]
+        },
+        {
+            "option" : "Fakultas Keperawatan",
+            "list" : ["Profesi Ners", "Keperawatan"]
+        },
+        {
+            "option" : "Akademi Sekretari Manajemen Indonesia Klabat",
+            "list" : ["Sekretari (D3)"]
+        }
+    ];
+    while(form_stud_programOfStudy_list.children.length > 0) {
+        form_stud_programOfStudy_list.removeChild(form_stud_programOfStudy_list.children[0]);
+    }
+
+    for(let i=0; i<data_programOfStudy.length; i++) {
+        if(selected_faculty == data_programOfStudy[i].option) {
+            for(let j=0; j<data_programOfStudy[i].list.length; j++) {
+                form_stud_programOfStudy_list.appendChild(createListOption(i, data_programOfStudy[i].list[j]));
+            }
+        }
+    }
+}
+
+refresh_student_table_data();
+</script>
